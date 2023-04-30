@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
 
   <style>
     .peerConnectionState-new {
@@ -73,8 +74,12 @@
 
     #content{
      width:820px;
+     height: 985px;
      position: relative;
      margin:0 auto; 
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
     }
     
     #buttons{
@@ -130,6 +135,40 @@
       border-radius: 50%;
       background-color: #fff;
     }
+
+    .input-wrapper {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .input-chat {
+      border-radius: 8px;
+      border: solid 1px rgba(0,0,0,0.3);
+      height: 25px;
+      width: 100%;
+      outline: none;
+      text-align: start;
+      padding: 5px 8px;
+      font-size: 16px;
+    }
+
+    .speak-button {
+      text-align: start;
+      padding:10px 18px;
+      border-radius: 100px;
+      border:none;
+      font-size: 16px;
+      margin:0 5px;
+      background-color: #7459FE;
+      color: #fff;
+    }
+
+    .speak-button:hover{
+      background-color: #9480FF;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+    }
   </style>
 </head>
 
@@ -143,22 +182,20 @@
           <video id="talk-video" width=400 height=400 autoplay></video>
         </div>
       </div>
-      <br>
 
       <!-- added div#buttons -->
-      <div id="buttons">
+      <!-- <div id="buttons">
       <button id="connect-button" type="button">Connect</button>
       <button id="talk-button" type="button">Start</button>
       <button id="destroy-button" type="button">Destroy</button>
-    </div>
+    </div> -->
   
-    <!-- added div#status -->
-      <div id="status">
-      <!-- removed the wrapping <div> tags -->
-      ICE gathering status: <label id="ice-gathering-status-label"></label><br>
-      ICE status: <label id="ice-status-label"></label><br>
-      Peer connection status: <label id="peer-status-label"></label><br>
-      Signaling status: <label id="signaling-status-label"></label><br>
+
+    <div class="input-wrapper">
+      <input class="input-chat" type="text" placeholder="Please type or speak"/>
+      <button class="speak-button" type="button">
+        <i class="fa-solid fa-microphone-lines"></i>
+      </button>
     </div>
   </div>
 
