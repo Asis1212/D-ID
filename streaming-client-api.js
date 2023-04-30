@@ -64,10 +64,16 @@ talkButton.onclick = async () => {
 			headers: { Authorization: `Basic ${DID_API.key}`, 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				'script': {
-					'type': 'audio',
-					'audio_url': 'https://d-id-public-bucket.s3.us-west-2.amazonaws.com/webrtc.mp3',
+					'type': 'text',
+					'input': 'what is the song you are want to talking about ?',
+					'provider': {
+						'type': 'microsoft',
+						'voice_id': 'en-US-JennyNeural',
+						'voice_config': {
+							'style': 'chat',
+						},
+					},
 				},
-				'driver_url': 'bank://lively/',
 				'config': {
 					'stitch': true,
 				},
