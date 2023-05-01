@@ -71,10 +71,16 @@
       font-family: 'Mulish', sans-serif;
       text-align: center;
     }
-
+    
+    body {
+      
+      overflow: hidden;
+    }
+    
     #content{
-     width:820px;
-     height: 985px;
+      box-sizing: border-box;
+      height: 100vh;
+     width:65%;
      position: relative;
      margin:0 auto; 
      display: flex;
@@ -119,15 +125,16 @@
     }
 
     #video-wrapper{
+      width:100%;
       background:url(bg.png);
-      height:500px;
+      height:max-content;
       background-position: top;
     }
 
     #video-wrapper div{
       width:400px;
       margin:0 auto;
-      padding:50px 0 0 0;
+      padding:10px 0 0 0;
     }
     video{
       display:block;
@@ -136,10 +143,53 @@
       background-color: #fff;
     }
 
+    .chat-wrapper {
+      margin-top: 10px;
+      height:100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      gap:10px;      
+      scrollbar-width: none;
+    }
+
+    .chat-wrapper::-webkit-scrollbar {  
+      display: none;
+    }
+
+    .did-message{
+      align-self: flex-start;
+      background: rgb(241, 242, 246);
+      border-radius: 16px 16px 16px 4px;
+      color: rgb(60, 60, 60);
+      max-width: 85%;
+      padding: 15px;
+      box-sizing:border-box;
+      word-break:break-word;
+      white-space: pre-wrap;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background: rgb(116, 89, 254);
+      border-radius: 16px 4px 16px 16px;
+      color: #fff;
+      max-width: 85%;
+      padding: 15px;
+      box-sizing:border-box;
+      word-break:break-word;
+      white-space: pre-wrap;
+      line-height: 120%;
+
+    }
+
     .input-wrapper {
       display: flex;
       gap: 10px;
-      margin-bottom: 10px;
+      margin-block: 10px 15px;
     }
 
     .input-chat {
@@ -184,19 +234,21 @@
       </div>
 
       <!-- added div#buttons -->
-      <!-- <div id="buttons">
-      <button id="connect-button" type="button">Connect</button>
+      <div id="buttons">
+      <!-- <button id="connect-button" type="button">Connect</button> -->
       <button id="talk-button" type="button">Start</button>
-      <button id="destroy-button" type="button">Destroy</button>
-    </div> -->
-  
+      <!-- <button id="destroy-button" type="button">Destroy</button> -->
+    </div>
 
-    <div class="input-wrapper">
+    <div class="chat-wrapper">
+    </div>
+      
+    <form class="input-wrapper">
       <input class="input-chat" type="text" placeholder="Please type or speak"/>
       <button class="speak-button" type="button">
         <i class="fa-solid fa-microphone-lines"></i>
       </button>
-    </div>
+    </form>
   </div>
 
   <script type="module" src="./index.js"></script>
